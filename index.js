@@ -1,12 +1,17 @@
+import 'dotenv/config'
+import runFirebase from './instance.js'
+runFirebase()
+
 import express from 'express'
 import { createServer } from 'node:http'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { Server } from 'socket.io'
-import runFirebase from './instance.js'
 import { getFirestore } from 'firebase-admin/firestore'
+// import serviceAccount from './serviceAccount.js'
 
-runFirebase()
+// console.log(serviceAccount)
+
 const db = getFirestore()
 const docRef = db.collection('chat').doc('room1')
 
